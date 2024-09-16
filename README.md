@@ -185,6 +185,7 @@ Currently, this repository contains the following libraries/applications:
 |[proxygen](https://github.com/facebook/proxygen)|C++|![stars](https://img.shields.io/github/stars/facebook/proxygen?style=flat)|
 |[pugixml](https://github.com/zeux/pugixml)|C++|![stars](https://img.shields.io/github/stars/zeux/pugixml?style=flat)|
 |[pybind11](https://github.com/pybind/pybind11)|C++|![stars](https://img.shields.io/github/stars/pybind/pybind11?style=flat)|
+|[quantlib](https://github.com/lballabio/QuantLib)|C++|![stars](https://img.shields.io/github/stars/lballabio/QuantLib?style=flat)|
 |[quest](https://github.com/QuEST-Kit/QuEST)|C++|![stars](https://img.shields.io/github/stars/QuEST-Kit/QuEST?style=flat)|
 |[re2](https://github.com/google/re2)|C++|![stars](https://img.shields.io/github/stars/google/re2?style=flat)|
 |[readerwriterqueue](https://github.com/cameron314/readerwriterqueue)|C++|![stars](https://img.shields.io/github/stars/cameron314/readerwriterqueue?style=flat)|

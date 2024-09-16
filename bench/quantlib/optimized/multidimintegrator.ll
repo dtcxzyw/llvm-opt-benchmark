@@ -1,0 +1,4551 @@
+; ModuleID = 'bench/quantlib/original/multidimintegrator.ll'
+source_filename = "bench/quantlib/original/multidimintegrator.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
+%"class.std::basic_ostream.base" = type { ptr }
+%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
+%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
+%"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
+%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
+%"struct.std::ios_base::_Words" = type { ptr, i64 }
+%"class.std::allocator.10" = type { i8 }
+%"class.boost::shared_ptr.15" = type { ptr, %"class.boost::detail::shared_count" }
+%"class.boost::detail::shared_count" = type { ptr }
+%"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
+%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
+%"union.std::_Nocopy_types" = type { { i64, i64 } }
+%"class.std::function.18" = type { %"class.std::_Function_base", ptr }
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
+
+$_ZN8QuantLib5ErrorD2Ev = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvv = comdat any
+
+$_ZNSt6vectorISt8functionIFdRKS0_IFdRKS_IdSaIdEEEES4_S4_EESaISA_EED2Ev = comdat any
+
+$_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EED2Ev = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_ = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd = comdat any
+
+$_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvv = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvv = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvv = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvv = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvv = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvv = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_ = comdat any
+
+$_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+$_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_ = comdat any
+
+@.str = private unnamed_addr constant [36 x i8] c"Too many dimensions in integration.\00", align 1
+@.str.1 = private unnamed_addr constant [139 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/quantlib/QuantLib/ql/experimental/math/multidimintegrator.cpp\00", align 1
+@__PRETTY_FUNCTION__._ZN8QuantLib16MultidimIntegralC2ERKSt6vectorIN5boost10shared_ptrINS_10IntegratorEEESaIS5_EE = private unnamed_addr constant [95 x i8] c"QuantLib::MultidimIntegral::MultidimIntegral(const std::vector<ext::shared_ptr<Integrator>> &)\00", align 1
+@_ZTIN8QuantLib5ErrorE = external constant ptr
+@_ZTVN8QuantLib5ErrorE = external unnamed_addr constant { [5 x ptr] }, align 8
+@.str.2 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
+@.str.5 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
+@.str.6 = private unnamed_addr constant [8 x i8] c"px != 0\00", align 1
+@__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv = private unnamed_addr constant [134 x i8] c"typename boost::detail::sp_dereference<T>::type boost::shared_ptr<QuantLib::Integrator>::operator*() const [T = QuantLib::Integrator]\00", align 1
+@.str.7 = private unnamed_addr constant [102 x i8] c"generated/home/dtcxzyw/WorkSpace/SDK/vcpkg/installed/x64-linux/include/boost/smart_ptr/shared_ptr.hpp\00", align 1
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [99 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [99 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [99 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [99 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [99 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [99 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [99 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [99 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [99 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [99 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [100 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [100 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [100 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [100 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant [100 x i8] c"ZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [70 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [70 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [70 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [70 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [70 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [70 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [69 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [69 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [69 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [69 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [69 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [69 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [69 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [69 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+@_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant [69 x i8] c"ZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_\00", comdat, align 1
+@_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_ = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_ }, comdat, align 8
+
+@_ZN8QuantLib16MultidimIntegralC1ERKSt6vectorIN5boost10shared_ptrINS_10IntegratorEEESaIS5_EE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib16MultidimIntegralC2ERKSt6vectorIN5boost10shared_ptrINS_10IntegratorEEESaIS5_EE
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN8QuantLib16MultidimIntegralC2ERKSt6vectorIN5boost10shared_ptrINS_10IntegratorEEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %integrators) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
+  %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp13 = alloca %"class.std::allocator.10", align 1
+  %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
+  %ref.tmp17 = alloca %"class.std::allocator.10", align 1
+  %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %integrators, i64 8
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %1 = load ptr, ptr %integrators, align 8, !tbaa !8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
+  %cmp.not.i.i.i.i = icmp eq ptr %0, %1
+  br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %cond.true.i.i.i.i
+
+cond.true.i.i.i.i:                                ; preds = %entry
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i, 576460752303423487
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEE8allocateERS5_m.exit.i.i.i.i, !prof !9
+
+if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #17
+  unreachable
+
+_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEE8allocateERS5_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
+  %call5.i.i.i.i2.i6.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #18
+  br label %invoke.cont.i
+
+invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEE8allocateERS5_m.exit.i.i.i.i, %entry
+  %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i, %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEE8allocateERS5_m.exit.i.i.i.i ]
+  store ptr %cond.i.i.i.i, ptr %this, align 8, !tbaa !8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !3
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.boost::shared_ptr.15", ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !10
+  %2 = load ptr, ptr %integrators, align 8, !tbaa !11
+  %3 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !11
+  %cmp.i.not5.i.i.i.i.i = icmp eq ptr %2, %3
+  br i1 %cmp.i.not5.i.i.i.i.i, label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EEC2ERKS6_.exit, label %for.body.i.i.i.i.i
+
+for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib10IntegratorEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
+  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib10IntegratorEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %cond.i.i.i.i, %invoke.cont.i ]
+  %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib10IntegratorEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %2, %invoke.cont.i ]
+  %4 = load ptr, ptr %__first.sroa.0.06.i.i.i.i.i, align 8, !tbaa !12
+  store ptr %4, ptr %__cur.07.i.i.i.i.i, align 8, !tbaa !12
+  %pn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 8
+  %pn3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
+  %5 = load ptr, ptr %pn3.i.i.i.i.i.i.i, align 8, !tbaa !15
+  store ptr %5, ptr %pn.i.i.i.i.i.i.i, align 8, !tbaa !15
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib10IntegratorEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i
+  %use_count_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %6 = atomicrmw add ptr %use_count_.i.i.i.i.i.i.i.i.i, i32 1 monotonic, align 4
+  br label %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib10IntegratorEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
+
+_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib10IntegratorEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %3
+  br i1 %cmp.i.not.i.i.i.i.i, label %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EEC2ERKS6_.exit, label %for.body.i.i.i.i.i, !llvm.loop !16
+
+_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EEC2ERKS6_.exit: ; preds = %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib10IntegratorEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, %invoke.cont.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i, %invoke.cont.i ], [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib10IntegratorEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !3
+  %integrationLevelEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %integrationLevelEntries_, i8 0, i64 24, i1 false)
+  %call5.i.i.i.i2.i.i15 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #18
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EEC2ERKS6_.exit
+  store ptr %call5.i.i.i.i2.i.i15, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i.i.i12 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i15, i64 480
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %call5.i.i.i.i2.i.i15, i8 0, i64 480, i1 false)
+  %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  store ptr %add.ptr.i.i.i12, ptr %7, align 8
+  store ptr %add.ptr.i.i.i12, ptr %_M_finish.i.i7.i, align 8, !tbaa !20
+  %varBuffer_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %8 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %9 = load ptr, ptr %integrators, align 8, !tbaa !8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
+  %cmp.i.i = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+
+if.then.i.i:                                      ; preds = %invoke.cont
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #17
+          to label %.noexc unwind label %lpad4
+
+.noexc:                                           ; preds = %if.then.i.i
+  unreachable
+
+_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %invoke.cont
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_, i8 0, i64 24, i1 false)
+  %cmp.not.i.i.i.i16 = icmp eq ptr %8, %9
+  br i1 %cmp.not.i.i.i.i16, label %invoke.cont5, label %if.end.i.i.i.i.i.i.i
+
+if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  %mul.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i, 1
+  %call5.i.i.i.i2.i.i21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #18
+          to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad4
+
+call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.i
+  store ptr %call5.i.i.i.i2.i.i21, ptr %varBuffer_, align 8, !tbaa !21
+  %add.ptr.i.i.i17 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i21, i64 %sub.ptr.div.i
+  %_M_end_of_storage.i.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  store ptr %add.ptr.i.i.i17, ptr %_M_end_of_storage.i.i.i18, align 8, !tbaa !23
+  %10 = ashr exact i64 %sub.ptr.sub.i, 1
+  %11 = and i64 %10, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i21, i8 0, i64 %11, i1 false), !tbaa !24
+  br label %invoke.cont5
+
+invoke.cont5:                                     ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc
+  %retval.0.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i17, %call5.i.i.i.i2.i.i.noexc ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %_M_finish.i.i7.i20 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  store ptr %retval.0.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i20, align 8, !tbaa !26
+  %12 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !3
+  %13 = load ptr, ptr %integrators, align 8, !tbaa !8
+  %sub.ptr.lhs.cast.i23 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i24 = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i25 = sub i64 %sub.ptr.lhs.cast.i23, %sub.ptr.rhs.cast.i24
+  %cmp = icmp ult i64 %sub.ptr.sub.i25, 256
+  br i1 %cmp, label %do.end, label %if.then
+
+if.then:                                          ; preds = %invoke.cont5
+  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #19
+  invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
+          to label %invoke.cont8 unwind label %lpad7
+
+invoke.cont8:                                     ; preds = %if.then
+  %call1.i27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, ptr noundef nonnull @.str, i64 noundef 35)
+          to label %invoke.cont10 unwind label %lpad9
+
+invoke.cont10:                                    ; preds = %invoke.cont8
+  %exception = call ptr @__cxa_allocate_exception(i64 24) #19
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp12) #19
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp13) #19
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13)
+          to label %invoke.cont15 unwind label %ehcleanup30.thread
+
+invoke.cont15:                                    ; preds = %invoke.cont10
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp16) #19
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp17) #19
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8QuantLib16MultidimIntegralC2ERKSt6vectorIN5boost10shared_ptrINS_10IntegratorEEESaIS5_EE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp17)
+          to label %invoke.cont19 unwind label %ehcleanup26.thread
+
+invoke.cont19:                                    ; preds = %invoke.cont15
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp20) #19
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream)
+          to label %invoke.cont22 unwind label %lpad21
+
+invoke.cont22:                                    ; preds = %invoke.cont19
+  invoke void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS8_S8_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, i64 noundef 30, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20)
+          to label %invoke.cont24 unwind label %lpad23
+
+invoke.cont24:                                    ; preds = %invoke.cont22
+  invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN8QuantLib5ErrorE, ptr nonnull @_ZN8QuantLib5ErrorD2Ev) #17
+          to label %unreachable unwind label %lpad23
+
+lpad:                                             ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EEC2ERKS6_.exit
+  %14 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup40
+
+lpad4:                                            ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup39
+
+lpad7:                                            ; preds = %if.then
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup35
+
+lpad9:                                            ; preds = %invoke.cont8
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup34
+
+ehcleanup30.thread:                               ; preds = %invoke.cont10
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  br label %cleanup.action.sink.split
+
+lpad21:                                           ; preds = %invoke.cont19
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup
+
+lpad23:                                           ; preds = %invoke.cont24, %invoke.cont22
+  %cleanup.isactive.0 = phi i1 [ false, %invoke.cont24 ], [ true, %invoke.cont22 ]
+  %20 = landingpad { ptr, i32 }
+          cleanup
+  %21 = load ptr, ptr %ref.tmp20, align 8, !tbaa !27
+  %22 = getelementptr inbounds nuw i8, ptr %ref.tmp20, i64 16
+  %cmp.i.i.i = icmp eq ptr %21, %22
+  br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i28
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad23
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp20, i64 8
+  %23 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !31
+  %cmp3.i.i.i = icmp ult i64 %23, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
+  br label %ehcleanup
+
+if.then.i.i28:                                    ; preds = %lpad23
+  %24 = load i64, ptr %22, align 8, !tbaa !32
+  %add.i.i.i = add i64 %24, 1
+  call void @_ZdlPvm(ptr noundef %21, i64 noundef %add.i.i.i) #20
+  br label %ehcleanup
+
+ehcleanup:                                        ; preds = %if.then.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %lpad21
+  %.pn = phi { ptr, i32 } [ %19, %lpad21 ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %20, %if.then.i.i28 ]
+  %cleanup.isactive.3 = phi i1 [ true, %lpad21 ], [ %cleanup.isactive.0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %cleanup.isactive.0, %if.then.i.i28 ]
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp20) #19
+  %25 = load ptr, ptr %ref.tmp16, align 8, !tbaa !27
+  %26 = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 16
+  %cmp.i.i.i30 = icmp eq ptr %25, %26
+  br i1 %cmp.i.i.i30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34, label %if.then.i.i31
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34: ; preds = %ehcleanup
+  %_M_string_length.i.i.i35 = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 8
+  %27 = load i64, ptr %_M_string_length.i.i.i35, align 8, !tbaa !31
+  %cmp3.i.i.i36 = icmp ult i64 %27, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i36)
+  br label %ehcleanup26
+
+if.then.i.i31:                                    ; preds = %ehcleanup
+  %28 = load i64, ptr %26, align 8, !tbaa !32
+  %add.i.i.i32 = add i64 %28, 1
+  call void @_ZdlPvm(ptr noundef %25, i64 noundef %add.i.i.i32) #20
+  br label %ehcleanup26
+
+ehcleanup26:                                      ; preds = %if.then.i.i31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp17) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp16) #19
+  %29 = load ptr, ptr %ref.tmp12, align 8, !tbaa !27
+  %30 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 16
+  %cmp.i.i.i38 = icmp eq ptr %29, %30
+  br i1 %cmp.i.i.i38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, label %ehcleanup30
+
+ehcleanup26.thread:                               ; preds = %invoke.cont15
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp17) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp16) #19
+  %32 = load ptr, ptr %ref.tmp12, align 8, !tbaa !27
+  %33 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 16
+  %cmp.i.i.i3855 = icmp eq ptr %32, %33
+  br i1 %cmp.i.i.i3855, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42.thread, label %ehcleanup30.thread64
+
+ehcleanup30.thread64:                             ; preds = %ehcleanup26.thread
+  %34 = load i64, ptr %33, align 8, !tbaa !32
+  %add.i.i.i4067 = add i64 %34, 1
+  call void @_ZdlPvm(ptr noundef %32, i64 noundef %add.i.i.i4067) #20
+  br label %cleanup.action.sink.split
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42.thread: ; preds = %ehcleanup26.thread
+  %_M_string_length.i.i.i4362 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
+  %35 = load i64, ptr %_M_string_length.i.i.i4362, align 8, !tbaa !31
+  %cmp3.i.i.i4463 = icmp ult i64 %35, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i4463)
+  br label %cleanup.action.sink.split
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42: ; preds = %ehcleanup26
+  %_M_string_length.i.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
+  %36 = load i64, ptr %_M_string_length.i.i.i43, align 8, !tbaa !31
+  %cmp3.i.i.i44 = icmp ult i64 %36, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i44)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp13) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp12) #19
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup34
+
+ehcleanup30:                                      ; preds = %ehcleanup26
+  %37 = load i64, ptr %30, align 8, !tbaa !32
+  %add.i.i.i40 = add i64 %37, 1
+  call void @_ZdlPvm(ptr noundef %29, i64 noundef %add.i.i.i40) #20
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp13) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp12) #19
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup34
+
+cleanup.action.sink.split:                        ; preds = %ehcleanup30.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42.thread, %ehcleanup30.thread64
+  %.pn.pn.pn52.ph = phi { ptr, i32 } [ %31, %ehcleanup30.thread64 ], [ %31, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42.thread ], [ %18, %ehcleanup30.thread ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp13) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp12) #19
+  br label %cleanup.action
+
+cleanup.action:                                   ; preds = %cleanup.action.sink.split, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, %ehcleanup30
+  %.pn.pn.pn52 = phi { ptr, i32 } [ %.pn, %ehcleanup30 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42 ], [ %.pn.pn.pn52.ph, %cleanup.action.sink.split ]
+  call void @__cxa_free_exception(ptr %exception) #19
+  br label %ehcleanup34
+
+ehcleanup34:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, %ehcleanup30, %cleanup.action, %lpad9
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn52, %cleanup.action ], [ %.pn, %ehcleanup30 ], [ %17, %lpad9 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42 ]
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %_ql_msg_stream) #19
+  br label %ehcleanup35
+
+ehcleanup35:                                      ; preds = %ehcleanup34, %lpad7
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup34 ], [ %16, %lpad7 ]
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream) #19
+  br label %ehcleanup38
+
+do.end:                                           ; preds = %invoke.cont5
+  invoke void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+          to label %invoke.cont37 unwind label %lpad36
+
+invoke.cont37:                                    ; preds = %do.end
+  ret void
+
+lpad36:                                           ; preds = %do.end
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup38
+
+ehcleanup38:                                      ; preds = %lpad36, %ehcleanup35
+  %.pn8 = phi { ptr, i32 } [ %38, %lpad36 ], [ %.pn.pn.pn.pn.pn, %ehcleanup35 ]
+  %39 = load ptr, ptr %varBuffer_, align 8, !tbaa !21
+  %tobool.not.i.i.i = icmp eq ptr %39, null
+  br i1 %tobool.not.i.i.i, label %ehcleanup39, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %ehcleanup38
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %40 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !23
+  %sub.ptr.lhs.cast.i.i47 = ptrtoint ptr %40 to i64
+  %sub.ptr.rhs.cast.i.i48 = ptrtoint ptr %39 to i64
+  %sub.ptr.sub.i.i49 = sub i64 %sub.ptr.lhs.cast.i.i47, %sub.ptr.rhs.cast.i.i48
+  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %sub.ptr.sub.i.i49) #20
+  br label %ehcleanup39
+
+ehcleanup39:                                      ; preds = %if.then.i.i.i, %ehcleanup38, %lpad4
+  %.pn8.pn = phi { ptr, i32 } [ %15, %lpad4 ], [ %.pn8, %ehcleanup38 ], [ %.pn8, %if.then.i.i.i ]
+  call void @_ZNSt6vectorISt8functionIFdRKS0_IFdRKS_IdSaIdEEEES4_S4_EESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %integrationLevelEntries_) #19
+  br label %ehcleanup40
+
+ehcleanup40:                                      ; preds = %ehcleanup39, %lpad
+  %.pn8.pn.pn = phi { ptr, i32 } [ %.pn8.pn, %ehcleanup39 ], [ %14, %lpad ]
+  call void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #19
+  resume { ptr, i32 } %.pn8.pn.pn
+
+unreachable:                                      ; preds = %invoke.cont24
+  unreachable
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+
+; Function Attrs: mustprogress uwtable
+declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0 align 2
+
+declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %__dnew.i = alloca i64, align 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  store ptr %0, ptr %this, align 8, !tbaa !33
+  %cmp = icmp eq ptr %__s, null
+  br i1 %cmp, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.2) #17
+  unreachable
+
+if.end:                                           ; preds = %entry
+  %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #19
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #19
+  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !34
+  %cmp.i = icmp ugt i64 %call.i, 15
+  br i1 %cmp.i, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %if.end
+  %call2.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0)
+  store ptr %call2.i5, ptr %this, align 8, !tbaa !27
+  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !34
+  store i64 %1, ptr %0, align 8, !tbaa !32
+  br label %if.end.i
+
+if.end.i:                                         ; preds = %if.end, %if.then.i
+  %2 = phi ptr [ %call2.i5, %if.then.i ], [ %0, %if.end ]
+  switch i64 %call.i, label %if.end.i.i.i.i [
+    i64 1, label %if.then.i.i.i
+    i64 0, label %invoke.cont5
+  ]
+
+if.then.i.i.i:                                    ; preds = %if.end.i
+  %3 = load i8, ptr %__s, align 1, !tbaa !32
+  store i8 %3, ptr %2, align 1, !tbaa !32
+  br label %invoke.cont5
+
+if.end.i.i.i.i:                                   ; preds = %if.end.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %__s, i64 %call.i, i1 false)
+  br label %invoke.cont5
+
+invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
+  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !34
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !31
+  %5 = load ptr, ptr %this, align 8, !tbaa !27
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %4
+  store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i) #19
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #0 align 2
+
+declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS8_S8_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !35
+  %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !15
+  %cmp.not.i.i = icmp eq ptr %0, null
+  br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %use_count_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %1 = atomicrmw sub ptr %use_count_.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i = icmp eq i32 %1, 1
+  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+
+if.then.i.i.i:                                    ; preds = %if.then.i.i
+  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !35
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %2 = load ptr, ptr %vfn.i.i.i, align 8
+  invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
+          to label %.noexc.i.i unwind label %terminate.lpad.i.i
+
+.noexc.i.i:                                       ; preds = %if.then.i.i.i
+  %weak_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %3 = atomicrmw sub ptr %weak_count_.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i = icmp eq i32 %3, 1
+  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
+
+if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
+  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !35
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %4 = load ptr, ptr %vfn.i.i.i.i, align 8
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
+          to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
+
+terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i, %if.then.i.i.i
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #21
+  unreachable
+
+_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %entry, %if.then.i.i, %.noexc.i.i, %if.then.i.i.i.i
+  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
+  ret void
+}
+
+; Function Attrs: cold noreturn
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
+
+declare void @__cxa_free_exception(ptr) local_unnamed_addr
+
+; Function Attrs: mustprogress nounwind uwtable
+declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i.i = alloca %"class.std::function", align 8
+  %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i = alloca %"class.std::function", align 8
+  %integrationLevelEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %0 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 448
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %1, align 8
+  %2 = ptrtoint ptr %this to i64
+  store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %4 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  store ptr %4, ptr %_M_invoker.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  %tobool.not.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i, label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+          to label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit unwind label %terminate.lpad.i.i
+
+terminate.lpad.i.i:                               ; preds = %if.then.i.i
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #21
+  unreachable
+
+_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %7 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 416
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  store i64 0, ptr %8, align 8
+  store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 432
+  %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  store ptr %9, ptr %_M_manager.i.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 440
+  %10 = load ptr, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  store ptr %10, ptr %_M_invoker.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  %tobool.not.i.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i, label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvv.exit, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit
+  %call.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+          to label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvv.exit unwind label %terminate.lpad.i.i.i
+
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #21
+  unreachable
+
+_ZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvv.exit: ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, %if.then.i.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  call void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorISt8functionIFdRKS0_IFdRKS_IdSaIdEEEES4_S4_EESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %0 = load ptr, ptr %this, align 8, !tbaa !18
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !20
+  %cmp.not3.i.i.i = icmp eq ptr %0, %1
+  br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
+
+for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i
+  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i ], [ %0, %entry ]
+  %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
+  %2 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !38
+  %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
+  br i1 %tobool.not.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i
+
+if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i
+  %call.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i, i32 noundef 3)
+          to label %_ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
+
+terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
+  %3 = landingpad { ptr, i32 }
+          catch ptr null
+  %4 = extractvalue { ptr, i32 } %3, 0
+  tail call void @__clang_call_terminate(ptr %4) #21
+  unreachable
+
+_ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 32
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !40
+
+invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EEEvPT_.exit.i.i.i
+  %.pr = load ptr, ptr %this, align 8, !tbaa !18
+  br label %invoke.cont
+
+invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
+  %5 = phi ptr [ %.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
+  %tobool.not.i.i = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EESaISB_EED2Ev.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %invoke.cont
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %6 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !41
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %sub.ptr.sub.i) #20
+  br label %_ZNSt12_Vector_baseISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EESaISB_EED2Ev.exit
+
+_ZNSt12_Vector_baseISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EESaISB_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %1 = load ptr, ptr %_M_finish, align 8, !tbaa !3
+  %cmp.not3.i.i.i = icmp eq ptr %0, %1
+  br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
+
+for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i
+  %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i ], [ %0, %entry ]
+  %pn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 8
+  %2 = load ptr, ptr %pn.i.i.i.i.i, align 8, !tbaa !15
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, null
+  br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i
+
+if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
+  %use_count_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %3 = atomicrmw sub ptr %use_count_.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %3, 1
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i
+
+if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !35
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
+  %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
+  invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
+          to label %.noexc.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
+
+.noexc.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i.i
+  %weak_count_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %5 = atomicrmw sub ptr %weak_count_.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %5, 1
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i
+
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i.i
+  %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !35
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
+  %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
+  invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %2)
+          to label %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
+
+terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #21
+  unreachable
+
+_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !42
+
+invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i
+  %.pr = load ptr, ptr %this, align 8, !tbaa !8
+  br label %invoke.cont
+
+invoke.cont:                                      ; preds = %invoke.contthread-pre-split, %entry
+  %9 = phi ptr [ %.pr, %invoke.contthread-pre-split ], [ %0, %entry ]
+  %tobool.not.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i, label %_ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EED2Ev.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %invoke.cont
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %10 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !10
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %9 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %sub.ptr.sub.i) #20
+  br label %_ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EED2Ev.exit
+
+_ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EED2Ev.exit: ; preds = %invoke.cont, %if.then.i.i
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
+
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #21
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
+
+; Function Attrs: cold nofree noreturn
+declare void @_ZSt9terminatev() local_unnamed_addr #8
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
+
+; Function Attrs: noreturn
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: noreturn
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !43
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+declare noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(32), double noundef, double noundef) local_unnamed_addr #2
+
+declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !47
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !49
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 112
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !53
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !55
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !57
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 104
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !58
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !60
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !61
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !62
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 96
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !63
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !65
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !67
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 88
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !72
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 80
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !73
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !75
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !76
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !77
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !78
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !81
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !82
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 64
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !83
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !85
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !86
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !87
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !90
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !92
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !93
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !95
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !97
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !98
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !100
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !101
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !102
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !103
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !105
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !106
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !107
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !110
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !111
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !112
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %add.ptr.i, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %5 = load double, ptr %add.ptr.i3, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %add.ptr.i4 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %7 = load double, ptr %add.ptr.i4, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i6 = icmp eq ptr %12, null
+  br i1 %tobool.not.i6, label %_ZNSt14_Function_baseD2Ev.exit10, label %if.then.i7
+
+if.then.i7:                                       ; preds = %lpad
+  %call.i8 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %terminate.lpad.i9
+
+terminate.lpad.i9:                                ; preds = %if.then.i7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %lpad, %if.then.i7
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !113
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !115
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !116
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !117
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %9 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store double %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !24
+  %call2.i.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret double %call2.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(24) %a, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp = alloca %"class.std::function.18", align 8
+  %0 = load ptr, ptr %this, align 8, !tbaa !8
+  %1 = load ptr, ptr %0, align 8, !tbaa !12
+  %cmp.not.i = icmp eq ptr %1, null
+  br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit, !prof !9
+
+cond.false.i:                                     ; preds = %entry
+  tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv, ptr noundef nonnull @.str.7, i64 noundef 778)
+  %.pre.i = load ptr, ptr %0, align 8, !tbaa !12
+  br label %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+
+_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %cond.false.i
+  %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store i64 0, ptr %3, align 8
+  %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
+  store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
+  store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %4 = load ptr, ptr %a, align 8, !tbaa !21
+  %5 = load double, ptr %4, align 8, !tbaa !24
+  %6 = load ptr, ptr %b, align 8, !tbaa !21
+  %7 = load double, ptr %6, align 8, !tbaa !24
+  %call6 = invoke noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, double noundef %5, double noundef %7)
+          to label %invoke.cont unwind label %lpad
+
+invoke.cont:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %8 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i = icmp eq ptr %8, null
+  br i1 %tobool.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i
+
+if.then.i:                                        ; preds = %invoke.cont
+  %call.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i
+
+terminate.lpad.i:                                 ; preds = %if.then.i
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %invoke.cont, %if.then.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  ret double %call6
+
+lpad:                                             ; preds = %_ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit
+  %11 = landingpad { ptr, i32 }
+          cleanup
+  %12 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !38
+  %tobool.not.i4 = icmp eq ptr %12, null
+  br i1 %tobool.not.i4, label %_ZNSt14_Function_baseD2Ev.exit8, label %if.then.i5
+
+if.then.i5:                                       ; preds = %lpad
+  %call.i6 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit8 unwind label %terminate.lpad.i7
+
+terminate.lpad.i7:                                ; preds = %if.then.i5
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #21
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %lpad, %if.then.i5
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
+  resume { ptr, i32 } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !11
+  %1 = load double, ptr %__args, align 8, !tbaa !24
+  %2 = load ptr, ptr %0, align 8, !tbaa !118
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8, !tbaa !120
+  %varBuffer_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %5 = load ptr, ptr %varBuffer_.i.i.i.i, align 8, !tbaa !21
+  store double %1, ptr %5, align 8, !tbaa !24
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !38
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %6, null
+  br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZSt10__invoke_rIdRZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES8_S8_EUlT_E_JdEENSt9enable_ifIX16is_invocable_r_vISD_T0_DpT1_EESD_E4typeEOSH_DpOSI_.exit
+
+if.then.i.i.i.i.i:                                ; preds = %entry
+  tail call void @_ZSt25__throw_bad_function_callv() #17
+  unreachable
+
+_ZSt10__invoke_rIdRZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES8_S8_EUlT_E_JdEENSt9enable_ifIX16is_invocable_r_vISD_T0_DpT1_EESD_E4typeEOSH_DpOSI_.exit: ; preds = %entry
+  %_M_invoker.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %7 = load ptr, ptr %_M_invoker.i.i.i.i.i, align 8, !tbaa !121
+  %call2.i.i.i.i.i = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %varBuffer_.i.i.i.i)
+  ret double %call2.i.i.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 3, label %sw.bb6.i
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8, !tbaa !11
+  store ptr %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8, !tbaa !11
+  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !52
+  store ptr %call.i.i.i, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb6.i:                                         ; preds = %entry
+  %2 = load ptr, ptr %__dest, align 8, !tbaa !11
+  %isnull.i.i = icmp eq ptr %2, null
+  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
+
+delete.notnull.i.i:                               ; preds = %sw.bb6.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #20
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #10
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i.i = alloca %"class.std::function", align 8
+  %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i = alloca %"class.std::function", align 8
+  %integrationLevelEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %0 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 384
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %1, align 8
+  %2 = ptrtoint ptr %this to i64
+  store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %4 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  store ptr %4, ptr %_M_invoker.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  %tobool.not.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i, label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+          to label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit unwind label %terminate.lpad.i.i
+
+terminate.lpad.i.i:                               ; preds = %if.then.i.i
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #21
+  unreachable
+
+_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %7 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 352
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  store i64 0, ptr %8, align 8
+  store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 368
+  %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  store ptr %9, ptr %_M_manager.i.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 376
+  %10 = load ptr, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  store ptr %10, ptr %_M_invoker.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  %tobool.not.i.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i, label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvv.exit, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit
+  %call.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+          to label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvv.exit unwind label %terminate.lpad.i.i.i
+
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #21
+  unreachable
+
+_ZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvv.exit: ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, %if.then.i.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  call void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !123
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !125
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i.i = alloca %"class.std::function", align 8
+  %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i = alloca %"class.std::function", align 8
+  %integrationLevelEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %0 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 320
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %1, align 8
+  %2 = ptrtoint ptr %this to i64
+  store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %4 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  store ptr %4, ptr %_M_invoker.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  %tobool.not.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i, label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+          to label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit unwind label %terminate.lpad.i.i
+
+terminate.lpad.i.i:                               ; preds = %if.then.i.i
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #21
+  unreachable
+
+_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %7 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 288
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  store i64 0, ptr %8, align 8
+  store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 304
+  %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  store ptr %9, ptr %_M_manager.i.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %10 = load ptr, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  store ptr %10, ptr %_M_invoker.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  %tobool.not.i.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i, label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvv.exit, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit
+  %call.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+          to label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvv.exit unwind label %terminate.lpad.i.i.i
+
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #21
+  unreachable
+
+_ZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvv.exit: ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, %if.then.i.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  call void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !127
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !129
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i.i = alloca %"class.std::function", align 8
+  %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i = alloca %"class.std::function", align 8
+  %integrationLevelEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %0 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 256
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %1, align 8
+  %2 = ptrtoint ptr %this to i64
+  store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %4 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  store ptr %4, ptr %_M_invoker.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  %tobool.not.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i, label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+          to label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit unwind label %terminate.lpad.i.i
+
+terminate.lpad.i.i:                               ; preds = %if.then.i.i
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #21
+  unreachable
+
+_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %7 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 224
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  store i64 0, ptr %8, align 8
+  store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 240
+  %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  store ptr %9, ptr %_M_manager.i.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 248
+  %10 = load ptr, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  store ptr %10, ptr %_M_invoker.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  %tobool.not.i.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i, label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvv.exit, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit
+  %call.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+          to label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvv.exit unwind label %terminate.lpad.i.i.i
+
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #21
+  unreachable
+
+_ZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvv.exit: ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, %if.then.i.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  call void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !131
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !133
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i.i = alloca %"class.std::function", align 8
+  %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i = alloca %"class.std::function", align 8
+  %integrationLevelEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %0 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 192
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %1, align 8
+  %2 = ptrtoint ptr %this to i64
+  store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %4 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  store ptr %4, ptr %_M_invoker.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  %tobool.not.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i, label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+          to label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit unwind label %terminate.lpad.i.i
+
+terminate.lpad.i.i:                               ; preds = %if.then.i.i
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #21
+  unreachable
+
+_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %7 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 160
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  store i64 0, ptr %8, align 8
+  store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 176
+  %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  store ptr %9, ptr %_M_manager.i.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %10 = load ptr, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  store ptr %10, ptr %_M_invoker.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  %tobool.not.i.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i, label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvv.exit, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit
+  %call.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+          to label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvv.exit unwind label %terminate.lpad.i.i.i
+
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #21
+  unreachable
+
+_ZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvv.exit: ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, %if.then.i.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  call void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !135
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !137
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i.i = alloca %"class.std::function", align 8
+  %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i = alloca %"class.std::function", align 8
+  %integrationLevelEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %0 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %1, align 8
+  %2 = ptrtoint ptr %this to i64
+  store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %4 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  store ptr %4, ptr %_M_invoker.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  %tobool.not.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i, label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+          to label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit unwind label %terminate.lpad.i.i
+
+terminate.lpad.i.i:                               ; preds = %if.then.i.i
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #21
+  unreachable
+
+_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %7 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 96
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  store i64 0, ptr %8, align 8
+  store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 112
+  %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  store ptr %9, ptr %_M_manager.i.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %10 = load ptr, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  store ptr %10, ptr %_M_invoker.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  %tobool.not.i.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i, label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvv.exit, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit
+  %call.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+          to label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvv.exit unwind label %terminate.lpad.i.i.i
+
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #21
+  unreachable
+
+_ZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvv.exit: ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, %if.then.i.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  call void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !139
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !141
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %__tmp.sroa.0.i.i.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i.i.i = alloca %"class.std::function", align 8
+  %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i.i = alloca %"class.std::function", align 8
+  %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
+  %ref.tmp.i = alloca %"class.std::function", align 8
+  %integrationLevelEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %0 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 64
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  store i64 0, ptr %1, align 8
+  %2 = ptrtoint ptr %this to i64
+  store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
+  %_M_manager3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  store ptr %3, ptr %_M_manager.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %4 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  store ptr %4, ptr %_M_invoker.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i, align 8, !tbaa !11
+  %tobool.not.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i, label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit, label %if.then.i.i
+
+if.then.i.i:                                      ; preds = %entry
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+          to label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit unwind label %terminate.lpad.i.i
+
+terminate.lpad.i.i:                               ; preds = %if.then.i.i
+  %5 = landingpad { ptr, i32 }
+          catch ptr null
+  %6 = extractvalue { ptr, i32 } %5, 0
+  call void @__clang_call_terminate(ptr %6) #21
+  unreachable
+
+_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit: ; preds = %entry, %if.then.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
+  %7 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
+  %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  store i64 0, ptr %8, align 8
+  store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
+  %_M_manager3.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %9 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  store ptr %9, ptr %_M_manager.i.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %10 = load ptr, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  store ptr %10, ptr %_M_invoker.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i.i, align 8, !tbaa !11
+  %tobool.not.i.i.i = icmp eq ptr %9, null
+  br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit.i, label %if.then.i.i.i
+
+if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit
+  %call.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+          to label %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit.i unwind label %terminate.lpad.i.i.i
+
+terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #21
+  unreachable
+
+_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit.i: ; preds = %if.then.i.i.i, %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
+  %13 = load ptr, ptr %integrationLevelEntries_, align 8, !tbaa !18
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i) #19
+  %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 16
+  %_M_invoker.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 24
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  store i64 0, ptr %14, align 8
+  store i64 %2, ptr %ref.tmp.i.i.i, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
+  %_M_manager3.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load ptr, ptr %_M_manager3.i.i.i.i, align 8, !tbaa !11
+  store ptr %15, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation, ptr %_M_manager3.i.i.i.i, align 8, !tbaa !11
+  %_M_invoker4.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %16 = load ptr, ptr %_M_invoker4.i.i.i.i, align 8, !tbaa !11
+  store ptr %16, ptr %_M_invoker.i.i.i.i, align 8, !tbaa !11
+  store ptr @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_, ptr %_M_invoker4.i.i.i.i, align 8, !tbaa !11
+  %tobool.not.i.i.i.i = icmp eq ptr %15, null
+  br i1 %tobool.not.i.i.i.i, label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvv.exit, label %if.then.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit.i
+  %call.i.i.i.i = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, i32 noundef 3)
+          to label %_ZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvv.exit unwind label %terminate.lpad.i.i.i.i
+
+terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
+  %17 = landingpad { ptr, i32 }
+          catch ptr null
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #21
+  unreachable
+
+_ZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvv.exit: ; preds = %_ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_EENSt9enable_ifIXsr9_CallableISF_EE5valueERSA_E4typeEOSF_.exit.i, %if.then.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i) #19
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !143
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !145
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !147
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef double @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_E9_M_invokeERKSt9_Any_dataS9_S5_S5_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3) #0 comdat align 2 {
+entry:
+  %0 = load ptr, ptr %__functor, align 8, !tbaa !149
+  %call.i.i.i = tail call noundef double @_ZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(24) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3)
+  ret double %call.i.i.i
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFdRKSt8functionIFdRKSt6vectorIdSaIdEEEES5_S5_EZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4.i
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  store ptr %__source, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.bb4.i:                                         ; preds = %entry
+  %0 = load i64, ptr %__source, align 8, !tbaa !11
+  store i64 %0, ptr %__dest, align 8, !tbaa !11
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %sw.bb1, %sw.bb
+  ret i1 false
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #16
+
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { cold noreturn }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { noreturn }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { nounwind }
+attributes #20 = { builtin nounwind }
+attributes #21 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{!4, !5, i64 8}
+!4 = !{!"_ZTSNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!4, !5, i64 0}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!10 = !{!4, !5, i64 16}
+!11 = !{!5, !5, i64 0}
+!12 = !{!13, !5, i64 0}
+!13 = !{!"_ZTSN5boost10shared_ptrIN8QuantLib10IntegratorEEE", !5, i64 0, !14, i64 8}
+!14 = !{!"_ZTSN5boost6detail12shared_countE", !5, i64 0}
+!15 = !{!14, !5, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!19, !5, i64 0}
+!19 = !{!"_ZTSNSt12_Vector_baseISt8functionIFdRKS0_IFdRKSt6vectorIdSaIdEEEES5_S5_EESaISB_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!20 = !{!19, !5, i64 8}
+!21 = !{!22, !5, i64 0}
+!22 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!23 = !{!22, !5, i64 16}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"double", !6, i64 0}
+!26 = !{!22, !5, i64 8}
+!27 = !{!28, !5, i64 0}
+!28 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !29, i64 0, !30, i64 8, !6, i64 16}
+!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!30 = !{!"long", !6, i64 0}
+!31 = !{!28, !30, i64 8}
+!32 = !{!6, !6, i64 0}
+!33 = !{!29, !5, i64 0}
+!34 = !{!30, !30, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"vtable pointer", !7, i64 0}
+!37 = !{i64 0, i64 16, !32}
+!38 = !{!39, !5, i64 16}
+!39 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
+!40 = distinct !{!40, !17}
+!41 = !{!19, !5, i64 16}
+!42 = distinct !{!42, !17}
+!43 = !{!44, !5, i64 0}
+!44 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm15EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!45 = !{!46, !5, i64 24}
+!46 = !{!"_ZTSSt8functionIFddEE", !39, i64 0, !5, i64 24}
+!47 = !{!48, !5, i64 0}
+!48 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!49 = !{!48, !5, i64 8}
+!50 = !{!48, !5, i64 16}
+!51 = !{!48, !5, i64 24}
+!52 = !{i64 0, i64 8, !11, i64 8, i64 8, !11, i64 16, i64 8, !11, i64 24, i64 8, !11}
+!53 = !{!54, !5, i64 0}
+!54 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!55 = !{!54, !5, i64 8}
+!56 = !{!54, !5, i64 16}
+!57 = !{!54, !5, i64 24}
+!58 = !{!59, !5, i64 0}
+!59 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!60 = !{!59, !5, i64 8}
+!61 = !{!59, !5, i64 16}
+!62 = !{!59, !5, i64 24}
+!63 = !{!64, !5, i64 0}
+!64 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!65 = !{!64, !5, i64 8}
+!66 = !{!64, !5, i64 16}
+!67 = !{!64, !5, i64 24}
+!68 = !{!69, !5, i64 0}
+!69 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!70 = !{!69, !5, i64 8}
+!71 = !{!69, !5, i64 16}
+!72 = !{!69, !5, i64 24}
+!73 = !{!74, !5, i64 0}
+!74 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!75 = !{!74, !5, i64 8}
+!76 = !{!74, !5, i64 16}
+!77 = !{!74, !5, i64 24}
+!78 = !{!79, !5, i64 0}
+!79 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!80 = !{!79, !5, i64 8}
+!81 = !{!79, !5, i64 16}
+!82 = !{!79, !5, i64 24}
+!83 = !{!84, !5, i64 0}
+!84 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!85 = !{!84, !5, i64 8}
+!86 = !{!84, !5, i64 16}
+!87 = !{!84, !5, i64 24}
+!88 = !{!89, !5, i64 0}
+!89 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!90 = !{!89, !5, i64 8}
+!91 = !{!89, !5, i64 16}
+!92 = !{!89, !5, i64 24}
+!93 = !{!94, !5, i64 0}
+!94 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!95 = !{!94, !5, i64 8}
+!96 = !{!94, !5, i64 16}
+!97 = !{!94, !5, i64 24}
+!98 = !{!99, !5, i64 0}
+!99 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!100 = !{!99, !5, i64 8}
+!101 = !{!99, !5, i64 16}
+!102 = !{!99, !5, i64 24}
+!103 = !{!104, !5, i64 0}
+!104 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!105 = !{!104, !5, i64 8}
+!106 = !{!104, !5, i64 16}
+!107 = !{!104, !5, i64 24}
+!108 = !{!109, !5, i64 0}
+!109 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!110 = !{!109, !5, i64 8}
+!111 = !{!109, !5, i64 16}
+!112 = !{!109, !5, i64 24}
+!113 = !{!114, !5, i64 0}
+!114 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!115 = !{!114, !5, i64 8}
+!116 = !{!114, !5, i64 16}
+!117 = !{!114, !5, i64 24}
+!118 = !{!119, !5, i64 0}
+!119 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES7_S7_EUlT_E_", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24}
+!120 = !{!119, !5, i64 8}
+!121 = !{!122, !5, i64 24}
+!122 = !{!"_ZTSSt8functionIFdRKSt6vectorIdSaIdEEEE", !39, i64 0, !5, i64 24}
+!123 = !{!124, !5, i64 0}
+!124 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm14EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!125 = !{!126, !5, i64 0}
+!126 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm13EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!127 = !{!128, !5, i64 0}
+!128 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm12EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!129 = !{!130, !5, i64 0}
+!130 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm11EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!131 = !{!132, !5, i64 0}
+!132 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm10EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!133 = !{!134, !5, i64 0}
+!134 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm9EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!135 = !{!136, !5, i64 0}
+!136 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm8EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!137 = !{!138, !5, i64 0}
+!138 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm7EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!139 = !{!140, !5, i64 0}
+!140 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm6EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!141 = !{!142, !5, i64 0}
+!142 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm5EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!143 = !{!144, !5, i64 0}
+!144 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm4EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!145 = !{!146, !5, i64 0}
+!146 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm3EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!147 = !{!148, !5, i64 0}
+!148 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm2EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}
+!149 = !{!150, !5, i64 0}
+!150 = !{!"_ZTSZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_", !5, i64 0}

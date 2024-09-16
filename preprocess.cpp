@@ -23,7 +23,10 @@ namespace fs = std::filesystem;
 class DumpPass : public PassInfoMixin<DumpPass> {
 public:
   PreservedAnalyses run(Module &M, ModuleAnalysisManager &MAM) {
-    const std::string &FileName = M.getSourceFileName();
+    const char *Prefix = getenv("DUMP_PREFIX");
+    if (!Prefix)
+      return PreservedAnalyses::none();
+    std::string FileName = M.getSourceFileName();
     M.setModuleIdentifier("");
     M.setSourceFileName("");
     StripDebugInfo(M);
@@ -31,10 +34,14 @@ public:
     if (M.empty())
       return PreservedAnalyses::none();
     std::error_code EC;
-    std::unique_ptr<ToolOutputFile> Out(
-        new ToolOutputFile(fs::path(FileName).replace_extension(".ll").string(),
-                           EC, sys::fs::OF_Text));
+    std::unique_ptr<ToolOutputFile> Out(new ToolOutputFile(
+        (Prefix / fs::path(FileName).filename().replace_extension(".ll"))
+            .string(),
+        EC, sys::fs::OF_Text));
+    if (EC)
+      return PreservedAnalyses::none();
     M.print(Out->os(), /*AAW=*/nullptr);
+    Out->keep();
     return PreservedAnalyses::none();
   }
 };

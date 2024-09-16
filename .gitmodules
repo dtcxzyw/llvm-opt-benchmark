@@ -648,3 +648,6 @@
 [submodule "bench/g2o/g2o"]
 	path = bench/g2o/g2o
 	url = https://github.com/RainerKuemmerle/g2o.git
+[submodule "bench/quantlib/QuantLib"]
+	path = bench/quantlib/QuantLib
+	url = https://github.com/lballabio/QuantLib.git
