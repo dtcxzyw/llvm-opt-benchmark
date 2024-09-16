@@ -25017,7 +25017,7 @@ openjdk/threadCrashProtection_posix.ll 46677798
 openjdk/threadCritical_posix.ll 42455107
 openjdk/threadHeapSampler.ll 117353504
 openjdk/threadIdTable.ll 518825942
-openjdk/threadIdentifier.ll 45000489
+openjdk/threadIdentifier.ll 45045493
 openjdk/threadLocalAllocBuffer.ll 309084473
 openjdk/threadLocalStorage_posix.ll 41104315
 openjdk/threadSMR.ll 1211313738
