@@ -8504,7 +8504,7 @@ gromacs/dorgbr.cpp.ll 78583766
 gromacs/dorgl2.cpp.ll 91903896
 gromacs/dorglq.cpp.ll 118798962
 gromacs/dorgqr.cpp.ll 116531475
-gromacs/dorm2l.cpp.ll 65716234
+gromacs/dorm2l.cpp.ll 65782132
 gromacs/dorm2r.cpp.ll 65293273
 gromacs/dormbr.cpp.ll 57378860
 gromacs/dorml2.cpp.ll 64270643
@@ -21603,7 +21603,7 @@ openblas/lapacke_cpt_nancheck.c.ll 38509973
 openblas/lapacke_cst_nancheck.c.ll 38397443
 openblas/lapacke_ctp_trans.c.ll 69820777
 openblas/lapacke_ctr_nancheck.c.ll 64947032
-openblas/lapacke_ctr_trans.c.ll 68064010
+openblas/lapacke_ctr_trans.c.ll 68132197
 openblas/lapacke_d_nancheck.c.ll 42457723
 openblas/lapacke_dgb_nancheck.c.ll 63669765
 openblas/lapacke_dgbcon_work.c.ll 50874284
