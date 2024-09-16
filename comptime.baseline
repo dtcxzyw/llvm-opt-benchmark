@@ -36599,7 +36599,7 @@ spike/f32_to_ui16.ll 37224100
 spike/f32_to_ui32.ll 49082113
 spike/f32_to_ui32_r_minMag.ll 47655918
 spike/f32_to_ui64.ll 50733408
-spike/f32_to_ui64_r_minMag.ll 49409943
+spike/f32_to_ui64_r_minMag.ll 49459356
 spike/f64_classify.ll 64920534
 spike/f64_div.ll 74451683
 spike/f64_mul.ll 54517762
