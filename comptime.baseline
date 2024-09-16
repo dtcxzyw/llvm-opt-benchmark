@@ -6109,7 +6109,7 @@ darktable/introspection_tonecurve.c.ll 1561725431
 darktable/introspection_toneequal.c.ll 2043240531
 darktable/introspection_tonemap.cc.ll 419120797
 darktable/introspection_velvia.c.ll 101573731
-darktable/introspection_vibrance.c.ll 96700597
+darktable/introspection_vibrance.c.ll 96603802
 darktable/introspection_vignette.c.ll 318867542
 darktable/introspection_watermark.c.ll 333743302
 darktable/introspection_zonesystem.c.ll 558740218
@@ -26311,7 +26311,7 @@ openmpi/pinfo_get_valuelen_f.ll 65168940
 openmpi/pinfo_set_f.ll 67062974
 openmpi/pinstalldirs_base_components.ll 103939205
 openmpi/pinstalldirs_base_expand.ll 162799562
-openmpi/pintercomm_create_from_groups_f.ll 69544855
+openmpi/pintercomm_create_from_groups_f.ll 69475298
 openmpi/plm_base_frame.ll 63988317
 openmpi/plm_base_jobid.ll 54808131
 openmpi/plm_base_launch_support.ll 1428076529
@@ -29103,7 +29103,7 @@ openusd/blockd.c.ll 109036298
 openusd/boundable.cpp.ll 1125449494
 openusd/boundableComputeExtent.cpp.ll 1125977934
 openusd/boundableLightBase.cpp.ll 355479499
-openusd/bprim.cpp.ll 94248749
+openusd/bprim.cpp.ll 94154268
 openusd/buffer.cpp.ll 52586921
 openusd/bufferArray.cpp.ll 477504842
 openusd/bufferArrayRange.cpp.ll 276639937
@@ -39633,7 +39633,7 @@ wireshark/packet-p_mul.c.ll 488779224
 wireshark/packet-packetbb.c.ll 369915131
 wireshark/packet-pagp.c.ll 81610525
 wireshark/packet-paltalk.c.ll 51767517
-wireshark/packet-pana.c.ll 137736614
+wireshark/packet-pana.c.ll 137874359
 wireshark/packet-pathport.c.ll 182805660
 wireshark/packet-pcap.c.ll 1607528281
 wireshark/packet-pcep.c.ll 768042214
