@@ -27402,7 +27402,7 @@ openssl/libcrypto-lib-cmp_status.ll 133375974
 openssl/libcrypto-lib-cmp_util.ll 113284016
 openssl/libcrypto-lib-cmp_vfy.ll 229251890
 openssl/libcrypto-lib-cms_asn1.ll 96499007
-openssl/libcrypto-lib-cms_att.ll 83734976
+openssl/libcrypto-lib-cms_att.ll 83818728
 openssl/libcrypto-lib-cms_dd.ll 49852001
 openssl/libcrypto-lib-cms_ec.ll 178616897
 openssl/libcrypto-lib-cms_enc.ll 100440100
